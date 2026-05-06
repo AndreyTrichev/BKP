@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.ipynb_checkpoints/
+.env
+.venv/
+venv/
+
+data/appeals.jsonl
+data/appeals*.jsonl
