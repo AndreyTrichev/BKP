@@ -45,7 +45,14 @@ rag_feodosia/
 │   ├── preambles_loader  чтение .md → карточки
 │   ├── singletons.py     ленивые синглтоны Embedder/CE/Qdrant
 │   ├── config.py         параметры через env
-│   └── schemas.py        RouteResult dataclass
+│   ├── schemas.py        RouteResult dataclass
+│   └── decoder/          альтернативный backend (Qwen3-Reranker):
+│       ├── decoder_ce.py     DecoderCrossEncoder (yes/no logits)
+│       ├── singletons.py     get_cross_encoder() → DecoderCrossEncoder
+│       ├── reranker.py       ce_rerank через DecoderCrossEncoder
+│       └── pipeline.py       route/route_debug + RRF-комбинация рангов CE и L2
+├── eval/            Офлайн-метрики:
+│   └── postprocess_rrf_bge_qwen.py   RRF-ансамбль bge + qwen3 из дампов
 ├── preambles/       Knowledge base — 22 .md файла:
 │   ├── L1/               4 dept-карточки (УГХ, УГР, Образование, Культура)
 │   └── L2/<dept>/        18 subdept-карточек (gas, water, heat, ...)
